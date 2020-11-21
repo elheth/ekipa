@@ -1,1 +1,44 @@
-<p>challenge works!</p>
+<div class="spacer"></div>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2>Ekipa Logo Viewer App</h2>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-12">
+      <table class="table border">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">title</th>
+            <th scope="col">text</th>
+            <th scope="col">Favorit</th>
+            <th scope="col">action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of challenges$ | async; let i = index">
+            <td>{{ c.node.title[0].text }}</td>
+            <td>{{ c.node.teaser[0].text }}</td>
+
+            <!-- details von selected challenge anzeigen -->
+            <td>
+              <button class="btn btn-secondary" (click)="onShow(c, i)">
+                details
+              </button>
+            </td>
+             <!-- toogle von farbe des icons -->
+            <td>
+              <i
+                class="fa fa-heart"
+                style="cursor: pointer !important"
+                (click)="enableWish(i)"
+                [style.color]="favoritList.includes(i) ? 'red' : 'black'"
+              ></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

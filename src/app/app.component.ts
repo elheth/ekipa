@@ -9,10 +9,10 @@ import { ChallengesService } from './services/challenges.service';
 })
 export class AppComponent {
 
-  challenges$: Observable<any>;
+   /* challenges$: Observable<any>;
   constructor(private challengesService: ChallengesService) {
     this.challenges$ = this.challengesService.getChallenges();
-  }
+  } */
 
 
 }

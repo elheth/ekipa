@@ -23,6 +23,7 @@
     "apollo-angular": "^2.0.4",
     "apollo-link-prismic": "^1.0.8",
     "bootstrap": "^4.5.3",
+    "font-awesome": "^4.7.0",
     "graphql": "^15.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",

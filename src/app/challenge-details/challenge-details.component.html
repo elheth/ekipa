@@ -1,1 +1,32 @@
-<p>challenge-details works!</p>
+<div class="spacer"></div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <button class="btn btn-secondary" (click)="onBack()">
+         zurück zur Liste
+      </button>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <table class="table border">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Logo</th>
+            <th scope="col">Favorit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of currentChallenge">
+            <td>{{ c.node.title[0].text }}</td>
+            <td><img  src="{{ c.node.logo?.url }}" alt="no logo" /></td>
+            <td>
+              <i class="fa fa-heart" style="cursor: pointer !important;" (click)='enableWish(routeIndex)' [style.color]="favoritList.includes(routeIndex)   ? 'red' : 'black'" ></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
