@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ApolloQueryResult } from '@apollo/client/core';
 import { Apollo, gql } from 'apollo-angular';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Challenge } from '../challenge.model';
 
 const GET_CHALLENGES = gql`
 {
@@ -24,7 +25,14 @@ const GET_CHALLENGES = gql`
 })
 export class ChallengesService {
 
+  private challengeSource = new BehaviorSubject<Challenge[]>([])
+  Challenge$ = this.challengeSource.asObservable();
+
   constructor(private apollo: Apollo) { }
+
+  setChallenge(challenge: Challenge[]) {
+    this.challengeSource.next(challenge)
+  }
 
   getChallenges(): Observable<ApolloQueryResult<any>> {
     return this.apollo
